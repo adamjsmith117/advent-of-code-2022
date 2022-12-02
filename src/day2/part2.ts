@@ -19,30 +19,16 @@ const points: Record<RPS | Outcome, number> = {
   win: 6,
 }
 
-const charToRPS = (c: string): RPS => {
-  switch (c) {
-    case 'A':
-      return 'rock'
-    case 'B':
-      return 'paper'
-    case 'C':
-      return 'scissors'
-    default:
-      throw new Error(`Unrecognized input: ${c}`)
-  }
+const charToRPS: Record<string, RPS> = {
+  A: 'rock',
+  B: 'paper',
+  C: 'scissors',
 }
 
-const charToOutcome = (c: string): Outcome => {
-  switch (c) {
-    case 'X':
-      return 'loss'
-    case 'Y':
-      return 'draw'
-    case 'Z':
-      return 'win'
-    default:
-      throw new Error(`Unrecognized input: ${c}`)
-  }
+const charToOutcome: Record<string, Outcome> = {
+  X: 'loss',
+  Y: 'draw',
+  Z: 'win',
 }
 
 const getProperResponse = (r: Round): RPS => {
@@ -69,8 +55,8 @@ const getFinalScore = (g: Guide): number => R.sum(g.map(scoreRound))
 
 const solve = (data: string[]): number => {
   const guide = data.map((v) => ({
-    opponent: charToRPS(v.split(' ')[0]),
-    desiredOutcome: charToOutcome(v.split(' ')[1]),
+    opponent: charToRPS[v.split(' ')[0]],
+    desiredOutcome: charToOutcome[v.split(' ')[1]],
   }))
   return getFinalScore(guide)
 }

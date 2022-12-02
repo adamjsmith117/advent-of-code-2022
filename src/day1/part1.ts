@@ -27,6 +27,6 @@ const solve = (data: string[]): number => {
 const DAY = 1
 const TEST = false
 
-const answer = pipe(readData({ day: DAY, test: TEST, delimiter: '\n' }), solve)
+const answer = pipe({ day: DAY, test: TEST, delimiter: '\n' }, readData, solve)
 console.log(answer)
 console.assert(answer === 69177)

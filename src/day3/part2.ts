@@ -1,4 +1,4 @@
-import { readData } from '../util'
+import { readData } from '../../shared/util'
 import { pipe } from 'fp-ts/function'
 
 const solve = (data: string[]): number => {

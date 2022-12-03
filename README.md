@@ -8,9 +8,9 @@
 - [x] day2
   - [x] part1
   - [x] part2
-- [ ] day3
-  - [ ] part1
-  - [ ] part2
+- [x] day3
+  - [x] part1
+  - [x] part2
 - [ ] day4
   - [ ] part1
   - [ ] part2

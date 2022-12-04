@@ -1,6 +1,6 @@
 import { pipe } from 'fp-ts/function'
 import * as R from 'ramda'
-import { readData } from '../../shared/util'
+import { readData } from '../util'
 
 type Group = Rucksack[]
 type Rucksack = string[]

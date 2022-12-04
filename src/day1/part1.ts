@@ -1,4 +1,4 @@
-import { readData } from '../../shared/util'
+import { readData } from '../util'
 import { pipe } from 'fp-ts/function'
 import * as R from 'ramda'
 

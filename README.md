@@ -14,9 +14,9 @@
 - [x] day4
   - [x] part1
   - [x] part2
-- [ ] day5
-  - [ ] part1
-  - [ ] part2
+- [x] day5
+  - [x] part1
+  - [x] part2
 - [ ] day6
   - [ ] part1
   - [ ] part2

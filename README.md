@@ -20,9 +20,9 @@
 - [x] day6
   - [x] part1
   - [x] part2
-- [ ] day7
-  - [ ] part1
-  - [ ] part2
+- [x] day7
+  - [x] part1
+  - [x] part2
 - [ ] day8
   - [ ] part1
   - [ ] part2

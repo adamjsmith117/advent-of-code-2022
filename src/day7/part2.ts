@@ -71,13 +71,24 @@ const dirSize = (path: string): number => {
   return size
 }
 
-const dirsUnderThreshold = (): Dir[] =>
-  Object.values(dirsByPath).filter((d: Dir) => d.size! <= 100_000)
-
 const recordDirSizes = () => dirSize('/')
 
-const solve = (data: string[]): number => -1
-// pipe(data, parseInput, recordDirSizes, dirsUnderThreshold, ...)
+const dirsOverThreshold = (threshold: number): Dir[] =>
+  Object.values(dirsByPath).filter((d: Dir) => d.size! >= threshold)
+
+const getMemorySizeToFree = () => Math.max(30_000_000 - unusedSpace(), 0)
+const unusedSpace = () => 70_000_000 - (dirsByPath['/'].size ?? 0)
+
+const solve = (data: string[]): number =>
+  pipe(
+    data,
+    parseInput,
+    recordDirSizes,
+    getMemorySizeToFree,
+    dirsOverThreshold,
+    R.sort((a: Dir, b: Dir) => b.size! - a.size!),
+    (dirs: Dir[]) => dirs.pop()?.size!
+  )
 
 // =============================================================================
 
@@ -86,4 +97,8 @@ const TEST = false
 
 const answer = pipe({ day: DAY, test: TEST, delimiter: '\n' }, readData, solve)
 console.log(answer)
-console.assert(answer === -1)
+if (TEST) {
+  console.assert(answer === 24933642)
+} else {
+  console.assert(answer < 3998236)
+}
